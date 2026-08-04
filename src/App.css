@@ -1,0 +1,47 @@
+@import 'tailwindcss';
+
+@import 'tailwindcss';
+
+:root {
+    --font-primary-base: 'Segoe UI', sans-serif;
+
+    --primary-surface-base: #f1f5f9;
+    --task-surface-base: #ffffff;
+    --delete-button-surface-base: transparent;
+
+    --primary-text-base: #1e293b;
+    --secondary-text-base: #64748b;
+    --muted-text-base: #94a3b8;
+    --button-text-base: #ffffff;
+
+    --input-border-base: #cbd5e1;
+    --task-border-base: #e2e8f0;
+
+    --red: #c62828;
+    --green: #30b730;
+}
+
+@theme {
+    --font-primary: var(--font-primary-base);
+
+    --color-primary-surface: var(--primary-surface-base);
+    --color-task-surface: var(--task-surface-base);
+    --color-delete-button-surface: var(--delete-button-surface-base);
+
+    --color-primary-text: var(--primary-text-base);
+    --color-secondary-text: var(--secondary-text-base);
+    --color-muted-text: var(--muted-text-base);
+    --color-button-text: var(--button-text-base);
+
+    --color-input-border: var(--input-border-base);
+    --color-task-border: var(--task-border-base);
+
+    --color-app-red: var(--red);
+    --color-app-green: var(--green);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-primary-surface);
+}
