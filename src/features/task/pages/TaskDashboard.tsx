@@ -17,7 +17,7 @@ export function TaskDashboard() {
         addTask(taskText);
         setInput('');
     };
-    
+
     return (
         <main className="bg-primary-surface font-primary text-primary-text min-h-screen px-5 py-10 lg:px-10 lg:py-12">
             <div className="mx-auto w-full max-w-120 lg:grid lg:max-w-7xl lg:grid-cols-[360px_minmax(0,1fr)] lg:items-start lg:gap-10 xl:grid-cols-[400px_minmax(0,1fr)] xl:gap-14">

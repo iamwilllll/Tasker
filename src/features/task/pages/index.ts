@@ -1,1 +1,1 @@
-export * from './TaskDashboard'
+export * from './TaskDashboard';
