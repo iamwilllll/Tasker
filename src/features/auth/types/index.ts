@@ -8,6 +8,10 @@ export type RegisterT = {
     confirmPassword: string;
 };
 
+export type ForgotPasswordT = {
+    email: string;
+};
+
 export type UpdateUserT = {
     name: string;
 };
