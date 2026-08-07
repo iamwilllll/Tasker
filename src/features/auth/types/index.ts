@@ -7,3 +7,7 @@ export type RegisterT = {
     password: string;
     confirmPassword: string;
 };
+
+export type UpdateUserT = {
+    name: string;
+};
