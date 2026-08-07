@@ -123,14 +123,6 @@ export async function updateUser(data: UpdateUserT) {
     }
 }
 
-export async function logout(): Promise<void | CustomErrorResponse> {
-    try {
-        await signOut(auth);
-    } catch (error) {
-        return handleError(error);
-    }
-}
-
 export async function forgotPasswordWithEmail({ email }: ForgotPasswordT): Promise<true | CustomErrorResponse> {
     try {
         await sendPasswordResetEmail(auth, email);
