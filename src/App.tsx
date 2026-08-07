@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router';
-import { Login, Register } from '@/features/auth/pages';
+import { Login, Register, ForgotPassword } from '@/features/auth/pages';
 import { TaskDashboard } from '@/features/task/pages';
 import { ProtectRoute, GuestRoute } from '@/components';
 import { useAuth } from '@/features/auth/hooks';
@@ -12,7 +12,7 @@ export default function App() {
     const { isAuthenticated, isAuthLoading } = useAuth();
 
     if (isAuthLoading) {
-        return <div>Loading...</div>;
+        return <div>Loading...,</div>;
     }
 
     return (
@@ -21,6 +21,7 @@ export default function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/forgot-password" element={<ForgotPassword />} />
             </Route>
 
             <Route element={<ProtectRoute isAuthenticated={isAuthenticated} />}>
