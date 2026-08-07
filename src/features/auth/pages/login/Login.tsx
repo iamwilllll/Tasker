@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { type LoginT } from '../../types';
-import { loginWithGoogle, loginWithEmail } from '../../services/googleAuth.service';
+import { loginWithGoogle, loginWithEmail } from '../../services/auth.service';
 import { ErrorMessage } from '../../components';
 import { useState } from 'react';
 

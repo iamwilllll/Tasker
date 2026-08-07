@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { useForm, useWatch } from 'react-hook-form';
-import { loginWithGoogle as registerWithGoogle, registerWithEmail } from '../../services/googleAuth.service';
+import { loginWithGoogle as registerWithGoogle, registerWithEmail } from '../../services/auth.service';
 import { ErrorMessage } from '../../components';
 import { type RegisterT } from '../../types';
 
