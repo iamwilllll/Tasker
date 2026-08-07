@@ -2,6 +2,7 @@ import {
     createUserWithEmailAndPassword,
     getRedirectResult,
     sendEmailVerification,
+    sendPasswordResetEmail,
     signInWithEmailAndPassword,
     signInWithPopup,
     signInWithRedirect,
@@ -13,7 +14,7 @@ import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import { auth, db, googleProvider } from '@/config/firebase';
 import { AppError, handleError } from '@/errors';
 import type { CustomErrorResponse } from '@/types';
-import type { LoginT, RegisterT, UpdateUserT } from '../types';
+import type { ForgotPasswordT, LoginT, RegisterT, UpdateUserT } from '../types';
 
 async function saveUser(user: User) {
     const userReference = doc(db, 'users', user.uid);
@@ -125,6 +126,15 @@ export async function updateUser(data: UpdateUserT) {
 export async function logout(): Promise<void | CustomErrorResponse> {
     try {
         await signOut(auth);
+    } catch (error) {
+        return handleError(error);
+    }
+}
+
+export async function forgotPasswordWithEmail({ email }: ForgotPasswordT): Promise<true | CustomErrorResponse> {
+    try {
+        await sendPasswordResetEmail(auth, email);
+        return true;
     } catch (error) {
         return handleError(error);
     }
