@@ -43,7 +43,7 @@ export function Modal({ open, onClose, title, description, children }: ModalProp
                 role="dialog"
                 aria-modal="true"
                 aria-labelledby="modal-title"
-                className="border-task-border bg-task-surface relative z-10 w-full max-w-lg rounded-2xl border p-5 shadow-2xl sm:p-6"
+                className="border-task-border bg-task-surface relative z-10 w-full max-w-lg rounded-xl border p-5 shadow-2xl sm:p-6"
             >
                 <header className="mb-6 flex items-start justify-between gap-4">
                     <div>
