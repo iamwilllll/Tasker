@@ -1,4 +1,4 @@
-import type { TaskT } from '../types';
+import type { TaskT } from '../../types';
 
 type TaskItemProps = {
     task: TaskT;
@@ -8,7 +8,7 @@ type TaskItemProps = {
 
 export function TaskItem({ task, toggleTask, deleteTask }: TaskItemProps) {
     return (
-        <li className="border-task-border bg-task-surface mb-2 flex items-center gap-3 rounded-lg border p-3.5">
+        <li className="border-task-border bg-task-surface mb-2 flex items-center gap-3 rounded-xl border p-3.5">
             <input
                 type="checkbox"
                 checked={task.completed}

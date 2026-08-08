@@ -9,24 +9,26 @@ import {
     signOut,
     updateProfile,
 } from 'firebase/auth';
-import type { User } from 'firebase/auth';
 import { doc, getDoc, serverTimestamp, setDoc } from 'firebase/firestore';
 import { auth, db, googleProvider } from '@/config/firebase';
 import { AppError, handleError } from '@/errors';
-import type { CustomErrorResponse } from '@/types';
+
+import type { User } from 'firebase/auth';
+import type { CustomErrorResponse, UserT } from '@/types';
 import type { ForgotPasswordT, LoginT, RegisterT, UpdateUserT } from '../types';
 
 async function saveUser(user: User) {
     const userReference = doc(db, 'users', user.uid);
     const userSnapshot = await getDoc(userReference);
 
-    const commonData = {
+    const commonData: UserT = {
         uid: user.uid,
         name: user.displayName ?? '',
         email: user.email ?? '',
         photoURL: user.photoURL ?? '',
         provider: 'google',
         updatedAt: serverTimestamp(),
+        createdAt: serverTimestamp(),
     };
 
     if (!userSnapshot.exists()) {
@@ -120,14 +122,6 @@ export async function updateUser(data: UpdateUserT) {
         console.log(data);
     } catch (error) {
         handleError(error);
-    }
-}
-
-export async function logout(): Promise<void | CustomErrorResponse> {
-    try {
-        await signOut(auth);
-    } catch (error) {
-        return handleError(error);
     }
 }
 
