@@ -1,11 +1,15 @@
 import { Routes, Route } from 'react-router';
 import { Login, Register, ForgotPassword } from '@/features/auth/pages';
-import { TaskDashboard } from '@/features/task/pages';
+import { DashboardLayout } from '@/features/dashboard/pages';
 import { ProtectRoute, GuestRoute } from '@/components';
 import { useAuth } from '@/features/auth/hooks';
 
 function Home() {
-    return <h2>Start page</h2>;
+    return (
+        <main>
+            <p>Start page</p>
+        </main>
+    );
 }
 
 export default function App() {
@@ -25,7 +29,7 @@ export default function App() {
             </Route>
 
             <Route element={<ProtectRoute isAuthenticated={isAuthenticated} />}>
-                <Route path="/dashboard" element={<TaskDashboard />} />
+                <Route path="/dashboard" element={<DashboardLayout />} />
             </Route>
         </Routes>
     );
