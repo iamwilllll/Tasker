@@ -98,6 +98,7 @@ export function DashboardLayout() {
 
                     <div className="flex h-full flex-col gap-6 md:grid md:grid-cols-2">
                         <TaskListSection
+                            title="Pending"
                             taskCount={pendingCount}
                             tasks={pendingTasks}
                             totalTasksCount={tasks.length}
@@ -107,6 +108,7 @@ export function DashboardLayout() {
                         />
 
                         <TaskListSection
+                            title="Completed"
                             taskCount={completedCount}
                             tasks={completedTasks}
                             totalTasksCount={tasks.length}

@@ -24,9 +24,9 @@ export function TaskItem({ task, toggleTask, deleteTask }: TaskItemProps) {
                 type="button"
                 onClick={() => deleteTask(task.id)}
                 aria-label={`Delete ${task.text}`}
-                className="bg-delete-button-surface hover:text-app-red size-5 cursor-pointer border-none text-base opacity-60 hover:opacity-100"
+                className="hover:text-app-red size-5 cursor-pointer border-none bg-transparent text-base opacity-60 hover:opacity-100"
             >
-                <svg className="size-full">
+                <svg className="size-full bg-transparent">
                     <use href="/sprite.svg#trash-icon" />
                 </svg>
             </button>

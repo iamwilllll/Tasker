@@ -19,8 +19,20 @@ export type UserT = {
     updatedAt: FieldValue;
 
     preferences?: {
-        theme?: 'light' | 'dark' | 'shiny';
+        theme?: 'system' | 'light' | 'dark' | 'shiny';
         language?: 'en' | 'es';
         notifications?: boolean;
     };
 };
+
+export type Theme = 'system' | 'light' | 'dark' | 'shiny';
+export type Language = 'en';
+
+export interface UserPreferences {
+    theme?: Theme;
+    language?: Language;
+}
+
+export interface AppUser extends User {
+    preferences?: UserPreferences;
+}

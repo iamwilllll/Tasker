@@ -1,28 +1,89 @@
 @import 'tailwindcss';
 
 :root {
-    --font-primary-base: 'Segoe UI', sans-serif;
+    --font-primary-base: 'Plus Jakarta Sans', 'Inter', 'Segoe UI', sans-serif;
 
-    --primary-surface-base: #f1f5f9;
+    --primary-surface-base: #fffaf5;
     --task-surface-base: #ffffff;
     --delete-button-surface-base: transparent;
 
-    --primary-text-base: #1e293b;
-    --secondary-text-base: #64748b;
-    --muted-text-base: #94a3b8;
+    --primary-text-base: #29243a;
+    --secondary-text-base: #675f78;
+    --muted-text-base: #a49caf;
     --button-text-base: #ffffff;
 
-    --input-border-base: #cbd5e1;
-    --task-border-base: #e2e8f0;
+    --input-border-base: #eadfd8;
+    --task-border-base: #f3e9e2;
 
-    --red: #c62828;
-    --green: #30b730;
+    --red: #e85d75;
+    --green: #2fbf9f;
+}
+
+html.light {
+    --primary-surface-base: #fffaf5;
+    --task-surface-base: #ffffff;
+    --delete-button-surface-base: #fff2f0;
+
+    --primary-text-base: #29243a;
+    --secondary-text-base: #675f78;
+    --muted-text-base: #a49caf;
+    --button-text-base: #ffffff;
+
+    --input-border-base: #eadfd8;
+    --task-border-base: #f3e9e2;
+
+    --red: #e85d75;
+    --green: #2fbf9f;
+
+    --brand-primary: #ff7657;
+    --brand-secondary: #6c63ff;
+}
+
+html.dark {
+    --primary-surface-base: #111827;
+    --task-surface-base: #1b2638;
+    --delete-button-surface-base: rgba(255, 139, 120, 0.1);
+
+    --primary-text-base: #f8f5ff;
+    --secondary-text-base: #b9b6c9;
+    --muted-text-base: #7f8498;
+    --button-text-base: #101827;
+
+    --input-border-base: #334158;
+    --task-border-base: #29364b;
+
+    --red: #ff7f87;
+    --green: #4fd1b5;
+
+    --brand-primary: #62d9d1;
+    --brand-secondary: #a78bfa;
+}
+
+html.shiny {
+    --primary-surface-base: #17121f;
+    --task-surface-base: #24192d;
+    --delete-button-surface-base: rgba(255, 126, 92, 0.12);
+
+    --primary-text-base: #fff7f2;
+    --secondary-text-base: #d5c4d8;
+    --muted-text-base: #a58ca8;
+    --button-text-base: #1b1422;
+
+    --input-border-base: #49324d;
+    --task-border-base: #39263f;
+
+    --red: #ff7187;
+    --green: #53d6a9;
+
+    --brand-primary: #ff8a5b;
+    --brand-secondary: #e879f9;
 }
 
 @theme {
     --font-primary: var(--font-primary-base);
 
     --color-primary-surface: var(--primary-surface-base);
+    --color-primary-background: var(--primary-surface-base);
     --color-task-surface: var(--task-surface-base);
     --color-delete-button-surface: var(--delete-button-surface-base);
 
@@ -36,14 +97,36 @@
 
     --color-app-red: var(--red);
     --color-app-green: var(--green);
+
+    --color-brand-primary: var(--brand-primary);
+    --color-brand-secondary: var(--brand-secondary);
+}
+
+html {
+    background-color: var(--primary-surface-base);
 }
 
 body {
     margin: 0;
     padding: 0;
-    background-color: var(--color-primary-surface);
+    min-height: 100vh;
+
+    background-color: var(--primary-surface-base);
+    color: var(--primary-text-base);
+
+    font-family: var(--font-primary-base);
+
+    transition:
+        background-color 250ms ease,
+        color 250ms ease,
+        border-color 250ms ease;
 }
 
 button {
     cursor: pointer;
+}
+
+::selection {
+    background-color: color-mix(in srgb, var(--brand-primary) 28%, transparent);
+    color: var(--primary-text-base);
 }
