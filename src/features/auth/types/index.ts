@@ -1,3 +1,5 @@
+import type { UserT } from '@/types';
+
 export type LoginT = { email: string; password: string };
 
 export type RegisterT = {
@@ -12,6 +14,6 @@ export type ForgotPasswordT = {
     email: string;
 };
 
-export type UpdateUserT = {
+export type UpdateUserT = UserT & {
     name: string;
 };
