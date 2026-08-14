@@ -4,7 +4,7 @@ import { Login, Register, ForgotPassword } from '@/features/auth/pages';
 import { DashboardLayout } from '@/features/dashboard/pages';
 import { ProtectRoute, GuestRoute } from '@/components';
 import { useAuth } from '@/features/auth/hooks';
-import type {  Language, Theme } from '@/types';
+import type { Language, Theme } from '@/types';
 
 export type ExtendedUser = {
     preferences?: {
@@ -12,7 +12,6 @@ export type ExtendedUser = {
         language?: Language;
     };
 };
-
 
 function LoadingScreen() {
     return (
@@ -44,7 +43,6 @@ function applyTheme(theme: Theme) {
 
 export default function App() {
     const { user, isAuthenticated, isAuthLoading } = useAuth();
-
 
     const currentUser = user as typeof user & ExtendedUser;
     const theme = currentUser?.preferences?.theme ?? 'system';

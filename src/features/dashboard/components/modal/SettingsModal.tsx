@@ -1,7 +1,7 @@
 import { Modal } from '@/components/ui/Modal';
 import { useAuth } from '@/features/auth/hooks';
 import { updateUser } from '@/features/auth/services/auth.service';
-import type {  Theme, Language } from '@/types';
+import type { Theme, Language } from '@/types';
 
 export type ExtendedUser = {
     preferences?: {
@@ -9,7 +9,6 @@ export type ExtendedUser = {
         language?: Language;
     };
 };
-
 
 interface SettingsModalProps {
     open: boolean;
