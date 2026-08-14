@@ -8,7 +8,7 @@ export type CustomErrorResponse = {
     error: boolean;
 };
 
-export type UserT = {
+export type UserT = User & {
     uid: User['uid'];
     name: string;
     email: string;
@@ -19,7 +19,7 @@ export type UserT = {
     updatedAt: FieldValue;
 
     preferences?: {
-        theme?: 'light' | 'dark' | 'shiny';
+        theme?: 'system' | 'light' | 'dark' | 'shiny';
         language?: 'en' | 'es';
         notifications?: boolean;
     };
