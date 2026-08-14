@@ -58,6 +58,7 @@ export function DashboardNav({ onOpenSettings, onOpenProfile }: DashboardNavProp
                                 <svg className="size-5" aria-hidden="true">
                                     {link.icon}
                                 </svg>
+                                <p>{link.name}</p>
                             </Link>
                         ))}
                     </nav>
