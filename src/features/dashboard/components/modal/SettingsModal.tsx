@@ -1,20 +1,19 @@
 import { Modal } from '@/components/ui/Modal';
 import { useAuth } from '@/features/auth/hooks';
 import { updateUser } from '@/features/auth/services/auth.service';
+import type {  Theme, Language } from '@/types';
 
-interface SettingsModalProps {
-    open: boolean;
-    onClose: () => void;
-}
-
-type Theme = 'system' | 'light' | 'dark' | 'shiny';
-type Language = 'en';
-
-interface ExtendedUser {
+export type ExtendedUser = {
     preferences?: {
         theme?: Theme;
         language?: Language;
     };
+};
+
+
+interface SettingsModalProps {
+    open: boolean;
+    onClose: () => void;
 }
 
 export function SettingsModal({ open, onClose }: SettingsModalProps) {

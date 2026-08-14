@@ -4,8 +4,15 @@ import { Login, Register, ForgotPassword } from '@/features/auth/pages';
 import { DashboardLayout } from '@/features/dashboard/pages';
 import { ProtectRoute, GuestRoute } from '@/components';
 import { useAuth } from '@/features/auth/hooks';
+import type {  Language, Theme } from '@/types';
 
-type Theme = 'system' | 'light' | 'dark' | 'shiny';
+export type ExtendedUser = {
+    preferences?: {
+        theme?: Theme;
+        language?: Language;
+    };
+};
+
 
 function LoadingScreen() {
     return (
@@ -38,8 +45,10 @@ function applyTheme(theme: Theme) {
 export default function App() {
     const { user, isAuthenticated, isAuthLoading } = useAuth();
 
-    const theme = user?.preferences?.theme ?? 'system';
-    const language = user?.preferences?.language ?? 'en';
+
+    const currentUser = user as typeof user & ExtendedUser;
+    const theme = currentUser?.preferences?.theme ?? 'system';
+    const language = currentUser?.preferences?.language ?? 'en';
 
     useEffect(() => {
         applyTheme(theme);
