@@ -1,4 +1,4 @@
-import type { User } from 'firebase/auth';
+import type { User  } from 'firebase/auth';
 import type { FieldValue } from 'firebase/firestore';
 
 export type CustomErrorResponse = {
@@ -8,7 +8,7 @@ export type CustomErrorResponse = {
     error: boolean;
 };
 
-export type UserT = User & {
+export type UserT =  {
     uid: User['uid'];
     name: string;
     email: string;
@@ -24,3 +24,16 @@ export type UserT = User & {
         notifications?: boolean;
     };
 };
+
+
+export type Theme = 'system' | 'light' | 'dark' | 'shiny';
+export type Language = 'en';
+
+export interface UserPreferences {
+    theme?: Theme;
+    language?: Language;
+}
+
+export interface AppUser extends User {
+    preferences?: UserPreferences;
+}

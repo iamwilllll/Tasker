@@ -10,18 +10,26 @@ interface SettingsModalProps {
 type Theme = 'system' | 'light' | 'dark' | 'shiny';
 type Language = 'en';
 
+interface ExtendedUser {
+    preferences?: {
+        theme?: Theme;
+        language?: Language;
+    };
+}
+
 export function SettingsModal({ open, onClose }: SettingsModalProps) {
     const { user } = useAuth();
+    const currentUser = user as typeof user & ExtendedUser;
 
-    const theme = user?.preferences?.theme ?? 'system';
-    const language = user?.preferences?.language ?? 'en';
+    const theme = currentUser?.preferences?.theme ?? 'system';
+    const language = currentUser?.preferences?.language ?? 'en';
 
     const handleThemeChange = async (newTheme: Theme) => {
-        if (!user) return;
+        if (!currentUser) return;
 
         await updateUser({
             preferences: {
-                ...user.preferences,
+                ...currentUser.preferences,
                 theme: newTheme,
             },
         });
@@ -30,11 +38,11 @@ export function SettingsModal({ open, onClose }: SettingsModalProps) {
     };
 
     const handleLanguageChange = async (newLanguage: Language) => {
-        if (!user) return;
+        if (!currentUser) return;
 
         await updateUser({
             preferences: {
-                ...user.preferences,
+                ...currentUser.preferences,
                 language: newLanguage,
             },
         });

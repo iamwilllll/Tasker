@@ -1,12 +1,12 @@
 import { create } from 'zustand';
-import type { UserT } from '@/types';
+import type { User } from 'firebase/auth';
 
 type AuthStoreType = {
-    user: UserT | null;
+    user: User | null;
     isAuthenticated: boolean;
     isAuthLoading: boolean;
     setAuthLoading: (isLoading: boolean) => void;
-    setAuthState: (user: UserT | null) => void;
+    setAuthState: (user: User | null) => void;
 };
 
 export const useAuthStore = create<AuthStoreType>((set) => ({
