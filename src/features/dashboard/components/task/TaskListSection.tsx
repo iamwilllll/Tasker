@@ -19,7 +19,7 @@ export function TaskListSection({
     deleteTask,
 }: TaskListSectionProps) {
     return (
-        <section className="border-task-border bg-task-surface flex min-w-0 flex-col rounded-xl border p-5 md:h-full">
+        <section className="border-task-border bg-task-surface flex max-h-150 min-w-0 flex-col overflow-y-scroll rounded-xl border p-5 md:h-full">
             <header className="mb-5 flex items-center justify-between">
                 <div className="flex items-center gap-2">
                     <h2 className="m-0 text-base font-semibold">Pending</h2>
