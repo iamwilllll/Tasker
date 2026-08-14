@@ -35,9 +35,7 @@ export function TaskListSection({
             {tasks.length > 0 ? (
                 <ul className="m-0 flex list-none flex-col gap-1 p-0">
                     {tasks.map((task) => (
-                        <li key={task.id}>
-                            <TaskItem task={task} toggleTask={toggleTask} deleteTask={deleteTask} />
-                        </li>
+                        <TaskItem key={task.id} task={task} toggleTask={toggleTask} deleteTask={deleteTask} />
                     ))}
                 </ul>
             ) : (
