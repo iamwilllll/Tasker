@@ -2,6 +2,7 @@ import { TaskItem } from '../../components';
 import type { TaskT } from '../../types';
 
 type TaskListSectionProps = {
+    title: string;
     taskCount: number;
     tasks: TaskT[];
     totalTasksCount: number;
@@ -11,6 +12,7 @@ type TaskListSectionProps = {
 };
 
 export function TaskListSection({
+    title,
     taskCount,
     tasks,
     totalTasksCount,
@@ -22,7 +24,7 @@ export function TaskListSection({
         <section className="border-task-border bg-task-surface flex max-h-150 min-w-0 flex-col overflow-y-scroll rounded-xl border p-5 md:h-full">
             <header className="mb-5 flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                    <h2 className="m-0 text-base font-semibold">Pending</h2>
+                    <h2 className="m-0 text-base font-semibold">{title}</h2>
 
                     <span className="border-task-border text-muted-text rounded-full border px-2 py-0.5 text-xs">
                         {taskCount}
