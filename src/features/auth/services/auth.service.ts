@@ -15,7 +15,7 @@ import { AppError, handleError } from '@/errors';
 
 import type { User } from 'firebase/auth';
 import type { CustomErrorResponse, UserT } from '@/types';
-import type { ForgotPasswordT, LoginT, RegisterT, UpdateUserT } from '../types';
+import type { ForgotPasswordT, LoginT, RegisterT } from '../types';
 
 // ! GLOBAL
 function shouldUseRedirect() {
@@ -65,7 +65,7 @@ function getProvider(user: User): UserT['provider'] {
     throw new AppError('auth/unsupported-provider');
 }
 
-export async function updateUser(data: UpdateUserT): Promise<true | CustomErrorResponse> {
+export async function updateUser(data: Partial<UserT>): Promise<true | CustomErrorResponse> {
     try {
         if (!auth.currentUser) {
             throw new AppError('auth/user-not-found');
